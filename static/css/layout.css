@@ -1,8 +1,14 @@
 :root{
-    /* color */
-    --var-color-1:white;
-    --var-color-2:rgba(250, 250, 250, 0.5);
-    --var-color-3:black;
+    /* falta revisar los colores de la letra y vincularlos con el root  */
+    
+    /* color of back graund*/
+    --var-color-1:rgb(78, 78, 78);
+    --var-color-2:rgba(116, 116, 116, 0.5);
+    --var-color-3:grey;
+
+    /* color of tipografy */
+    --var-color-4:black;
+    --var-color-5:rgb(201, 122, 122);
     
     /* tipografia */
     font-size: 14px;
@@ -15,49 +21,85 @@
 
 
 body{
-    background:var(--var-color-2);
+    background:linear-gradient(-45deg, black,rgb(61, 59, 59), rgb(187, 185, 185), gray  );
+
+    background-size:400% 400%;
+    position: relative;
+    animation: change 8s ease-in-out infinite;
 }
+@keyframes change{
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    1000% {background-position:0% 50%;}
+}
+
+
+/* nav */
 .nav_conten{
     justify-content: right;
     margin: 0 5% 0 0 ;
     height: auto;
     display: flex; 
 }
-
 .nav_conten_tex{
+    list-style-type: none;
     margin: 1em;
     font-size: 100%;
-    color: black;
+    /* color: var(--var-color-4); */
 }
 .link{
     text-decoration: none;
+    /* color: var(--var-color-4); */
 }
+.link:hover {
+    /* color:var(--var-color-5); */
+}
+
+
 /* father home */
 .section_conten{
-    padding: 1% 1% 1.0% 1%;
-    height: 80vh;
-    background:var(--var-color-1);
+    padding: 7%;
+    height: 100%;
+    /* background:var(--var-color-1); */
     display: grid;
-    grid-gap:20px;
+    grid-gap:80px;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,auto);
-    grid-template-areas: "img img texted"
-                         "img img texted"
+    grid-template-areas: "img1 img2 img3"
+                         "img1 img2 img3"
                          "footer footer footer";
-}  
-/* son one */
-.conten_img{
-    height: 70vh;
-    width: 100%;
-    margin: auto ;
-    border-radius: 0.5%;
-    max-width: 920px;
-    max-height: 600px;
-    background-image: url(../img/bm.jpg);
+} 
+
+
+
+.section_conten > section {
+    height:50vh;
+    width:100%;
+    margin: auto;
+    border-radius: 50%;    
+    max-width:  1000px;
+    max-height: 1000px;
     background-position: center;
-    background-size: 1000px ;
-    grid-area: img;
+    background-size: 10% ;
+}
+/* son one */
+.conten_img1{
+  
+    background-image: url(../img/1.png);
+    grid-area: img1;
 }   
+
+.conten_img2{
+    background-image: url(../img/2.png);
+    grid-area: img2;
+}   
+
+.conten_img3{
+
+    background-image: url(../img/3.png);
+    grid-area: img3;
+}     
+
 /* son tow */
 .section_conten_tex{
     width: 90%;
@@ -98,9 +140,10 @@ body{
     }
     .section_conten{
         grid-template-rows: repeat(3,auto);
-        grid-template-areas: "img img img"
-                             "texted texted texted"
-                             "footer footer footer";
+        grid-template-areas:"img1 img1 img1"
+                            "img2 img2 img2"
+                            "img3 img3 img3"
+                            "footer footer footer" ;
     }
     .conten_img{
     height: 50vh;
